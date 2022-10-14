@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "mtg-organizer-app",
+  "private_key_id": "82f3e8b0c7fbdf104b542ff2d3ac243792e64fdd",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDIb2YHcWmOU84p\niFoNKSOEk7FZYtGajrSqxZeezw0PAXUUJvxV+Q0ESOMLVrvjPZUYPAd+w259RmqJ\nBeMSjVbf+VmgEIhdn1RqR3TBVWwKKwlKxu9tfb+cZ0IMxKTiD8AuvPns1NpqnktK\n+ZsztC2g9citpS/RuqhzqIMThxQzoR4N/+2lb5ZgjGaZHXqv1bztkik5Nm3MKVEN\nQPcT8IiLBabB1Him4CcqQRcQC4qV8aqrq9WnO86ke32qC/eZkK46qxqms08Uje1S\nk9UDXEQvmN22AXccQ7DKToTMVo/GnisoiYYAQ3Hh9uelztTG6RzDFpHMb2DFPDYE\nGH8vhRkRAgMBAAECggEABkLAiTjILZg9jaH2M7ujIeGEV42IJlx3Ygj9zvA0JFHA\nO/ec+y+zC30eJnA4bZ7MH1X34yqsmVopOr8SoQI5Al7+2mQzaXIJu3yG6TRHXyi8\nx6qshBsg8JXWUNRiboAQ2Z59ugf+C8WGn/PP0fVUIldH3b18RgAfTrMm52W/qLGK\nBUmhJetVV+T2AiCcR5O2f0z1kL9A/yiUCmiAHHKxNlQd99F/hx4zYnUaJIL52tYs\nht//8EnarqOhZMy1mcwxIBgF1Bf9PLZh7G5HoZB4LdWJFYAyLM5245N+ELvTnoq1\nMxAQXzz6t/YBc74nl/I0Lbs9Zdb0I9Rp9BkjrNSo5wKBgQDp7PiS14HvbwUTG3Vi\n9ac31hqTLvtlN0UP53XnA+cE6AailR0+GhsPGJK2AaP/FdJw1xAC/fvo2r+0npik\nsCfmeqXtf8JmHlziZuPX2xHfbfGkxNw1Bue79fN8F8OXj7B3e8CLTR3OW0+s2kra\nj0XQ7D/TWyKNfzhBNfCV/rd8VwKBgQDbWWJ9g3kRbJ6i08EthqKPxQlN64PCj9FI\no95Uz9Iuryw/xXyyfPJmrxCCfobDSTG54XLQz9FD4VRvkGvIczVROYroSEQXu2aZ\nZOPqnmR2TRzYy5Gr2sdN2d9zEudwBWp2yhPYaNIITYAF9zitYitdjhrFKRyoG0o6\nC/V9+OY01wKBgQDODljT+JPTVmcQ8rIPbrZSn/2ewtbdzLbAELIxwaVBFCWsF0/A\nAXzuakXpnz5Xl2Bc14SaLiI1dmNB9iYdg7JR+p2ovE6AZ6SIJfvzi1yOBKnD60jS\nSPfeAQPuvnwjSIY4acEss8xaluJzL4KaTXRBWanLQs8H9xWVk68OYWY9VwKBgGbe\nWYlBcjLQvOjh5BPEs1I3drCbRfSl2+F0MF2YBRstvdO+e0d9v3SWn2iDjBHjrrVc\n3Kq++4YZE68qjNG57gREtzdORNjYYzqHDThHxheQ/HlTpuJwvM1u4xMlh3KKp65E\nAOCZ7/5C0kp58ZOmmW3LqhRSvoS8H6hvWVcVtmiLAoGAf6MJ3nto/meOY0UjAUaH\n5pW3CarxPU20srjySyYqNSlpW8Dq7sVsjsAOYjVUFp4qjbg+ZOBFSVdTvZqfBkIV\n4FjiE7i0rbiBQsDc87dKkvpIK9YPqdO2SlGRX9h2YmtoSAPgs1TNnELzMSQbFmCU\ndorKcQMw08qsvnHuItBK3SY=\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-adminsdk-ynoof@mtg-organizer-app.iam.gserviceaccount.com",
+  "client_id": "112526553923557258754",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-ynoof%40mtg-organizer-app.iam.gserviceaccount.com"
+}
