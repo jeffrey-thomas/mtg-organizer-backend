@@ -12,5 +12,4 @@ class Config():
     FLASK_ENV = os.getenv('FLASK_ENV')
     SECRET_KEY = os.environ.get('E_MINOR') or 'Mae rhaid i fi rhedeg o\'r draig.'
 
-    SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URI') or 'postgresql://vgqafgbo:dKLtrePrIxSJr3sk5B6xuLrpCCyn8s2B@kashin.db.elephantsql.com/vgqafgbo'
-    SQLALCHEMY_TRACK_MODIFICATIONS = False
+    SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URI')
