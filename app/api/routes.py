@@ -47,7 +47,7 @@ def create_deck(uid):
 @api.route('/decks',methods=['GET'])
 @token_required
 def get_decks(uid):
-    decks = Deck.query.filter_by(user_id = uid).all()
+    decks = Deck.query(Deck.id,Deck.name).filter_by(user_id = uid).all()
     response = decks_schema.dump(decks)
     return jsonify(response)
 
@@ -63,7 +63,7 @@ def get_single_deck(uid,id):
 #Update
 @api.route('/decks/<id>',methods=["POST", "PUT"])
 @token_required
-def update_book(uid, id):
+def update_deck(uid, id):
     deck = Deck.query.get(id)
     if(deck.user_id != uid):
         return jsonify(None)
