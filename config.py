@@ -14,4 +14,4 @@ class Config():
 
     SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URI')
     SQLALCHEMY_ENGINE_OPTIONS={'pool_size':3}
-    
+    CORS_HEADERS = 'Content-Type'

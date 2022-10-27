@@ -11,7 +11,7 @@ from helpers import JSONEncoder
 import firebase_admin
 
 app = Flask(__name__)
-CORS(app)
+cors = CORS(app)
 
 firebase_app = firebase_admin.initialize_app()
 
