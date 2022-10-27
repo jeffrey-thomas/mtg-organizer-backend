@@ -1,9 +1,10 @@
 from flask import Blueprint, request, jsonify
+from flask_cors import CORS
 from helpers import token_required
 from models import db, Deck, Card, deck_schema, decks_schema, card_schema, cards_schema
 
 api = Blueprint('api',__name__,url_prefix='/api')
-
+CORS(api)
 ###############################################################
 # Decks
 ###############################################################
