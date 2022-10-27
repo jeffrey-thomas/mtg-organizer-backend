@@ -1,28 +1,8 @@
 from flask import Blueprint, request, jsonify
 from helpers import token_required
-from models import db, User, Deck, Card, deck_schema, decks_schema, card_schema, cards_schema, user_schema
+from models import db, Deck, Card, deck_schema, decks_schema, card_schema, cards_schema
 
 api = Blueprint('api',__name__,url_prefix='/api')
-
-###############################################################
-# Users
-###############################################################
-
-# Create
-@api.route('/user',methods=['POST'])
-@token_required 
-def create_user(uid):
-
-    username = request.json['username']
-    email = request.json['email']
-
-    user = User(uid, username, email)
-
-    db.session.add(user)
-    db.session.commit()
-
-    response = user_schema.dump(user)
-    return jsonify(response)
 
 ###############################################################
 # Decks
@@ -35,7 +15,7 @@ def create_deck(uid):
 
     name = request.json['name']
 
-    deck = Deck(uid, name)
+    deck = Deck(user_id=uid, name=name)
 
     db.session.add(deck)
     db.session.commit()
@@ -47,7 +27,7 @@ def create_deck(uid):
 @api.route('/decks',methods=['GET'])
 @token_required
 def get_decks(uid):
-    decks = Deck.query(Deck.id,Deck.name).filter_by(user_id = uid).all()
+    decks = db.session.query(Deck.id,Deck.name).filter_by(user_id = uid).all()
     response = decks_schema.dump(decks)
     return jsonify(response)
 
@@ -82,7 +62,19 @@ def delete_deck(uid, id):
 
     if(deck.user_id != uid):
         return jsonify(None)
-        
+    
+    #move cards out of deck
+    library = db.session.query(Deck).filter_by(user_id=uid, name='').first()
+    cards = db.session.query(Card).filter_by(deck_id=id)
+    for card in cards:
+        #check if card is also already in library
+        existingCard = db.session.query(Card).filter_by(deck_id=library.id, id=card.id).first()
+        if(existingCard == None):
+            card.deck_id = library.id    
+        else:
+            existingCard.qty += card.qty
+            db.session.delete(card)
+
     db.session.delete(deck)
     db.session.commit()
 
@@ -96,14 +88,20 @@ def delete_deck(uid, id):
 # Create
 @api.route('/cards',methods=['POST'])
 @token_required 
-def create_card(uid):
+def add_card(uid):
 
+    deck_id = request.json['deck_id']
     id = request.json['id']
     qty = request.json['qty']
 
-    card = Card(id,uid, qty)
-
-    db.session.add(card)
+    #check if card already exists
+    card = db.session.query(Card).filter_by(deck_id=deck_id, id=id).first()
+    if(card == None):
+        card = Card(id=id,deck_id=deck_id, qty=qty)
+        db.session.add(card)
+    else:
+        card.qty += qty
+    
     db.session.commit()
 
     response = card_schema.dump(card)
@@ -112,8 +110,9 @@ def create_card(uid):
 #Read
 @api.route('/cards',methods=['GET'])
 @token_required
-def get_all_cards(uid):
-    cards = db.session.query(Card, Deck).join(Deck).filter(Deck.user_id == uid).all()
+def get_cards_by_deck_id(uid):
+    deck_ids = request.args.getlist('deck')
+    cards = db.session.query(Card).filter(Card.deck_id.in_(deck_ids))
     response = cards_schema.dump(cards)
     return jsonify(response)
 

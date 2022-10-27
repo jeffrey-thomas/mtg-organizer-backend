@@ -13,3 +13,5 @@ class Config():
     SECRET_KEY = os.environ.get('E_MINOR') or 'Mae rhaid i fi rhedeg o\'r draig.'
 
     SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URI')
+    SQLALCHEMY_ENGINE_OPTIONS={'pool_size':3}
+    

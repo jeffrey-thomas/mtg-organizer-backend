@@ -1,8 +1,6 @@
 from functools import wraps
-import secrets
 from flask import request, jsonify, json
 import decimal
-from models import User
 from firebase_admin import auth
 
 def token_required(flask_function):
@@ -16,13 +14,13 @@ def token_required(flask_function):
         if not token:
             return jsonify({'message':'Token is missing.'}), 401
 
-        try:
-            user_token = auth.verify_id_token(token)
-            uid = user_token['uid']
-        except:
-            return jsonify({'message':'Token is invalid.'})
+        #try:
+        user_token = auth.verify_id_token(token)
+        uid = user_token['uid']
+        #except:
+        #    return jsonify({'message':'Token is invalid.'})
 
-        return flask_function(uid)
+        return flask_function(uid, *args, **kwargs)
     return decorated
 
 class JSONEncoder(json.JSONEncoder):
